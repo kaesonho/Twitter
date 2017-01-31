@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TwitterListViewController.h
 //  Twitter
 //
 //  Created by Kaeson Ho on 1/30/17.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface TwitterListViewController : UIViewController
 
 @end
-
