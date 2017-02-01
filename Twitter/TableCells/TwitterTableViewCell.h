@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Tweet.h"
 
 @interface TwitterTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *retweetHeightConstaints;
+
+- (void) initFromTweetObject: (Tweet *)tweet;
 
 @end

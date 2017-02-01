@@ -7,6 +7,8 @@
 //
 
 #import "TwitterTableViewCell.h"
+#import "Tweet.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 @interface TwitterTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -17,6 +19,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *replyButton;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *retweetHeightConstraint;
+@property (weak, nonatomic) IBOutlet UILabel *retweetLabel;
+
 
 @end
 
@@ -29,6 +34,23 @@
     self.handleLabel.text = @"@geniepotatogeniepotatogeniepotatogeniepotato";
     self.timeLabel.text = @"4h";
     self.contentLabel.text = @"This is a Long Message. This is a Long Message. This is a Long Message. This is a Long Message. This is a Long Message. This is a Long Message. ";
+
+}
+
+- (void) initFromTweetObject: (Tweet *)tweet
+{
+    self.contentLabel.text = tweet.text;
+    self.nameLabel.text = tweet.user.name;
+    self.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
+    // self.timeLabel.text = [tweet.createdAt timeIntervalSinceNow];
+    NSURL *profileImageUrl = [NSURL URLWithString:tweet.user.profileImageUrl];
+    [self.profileImageView setImageWithURL: profileImageUrl];
+    
+    if (tweet.retweetUser == nil) {
+        self.retweetHeightConstaints.constant = 0;
+    } else {
+        self.retweetLabel.text = [NSString stringWithFormat:@"%@ Retweeted",  tweet.retweetUser.name ];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

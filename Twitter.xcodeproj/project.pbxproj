@@ -40,9 +40,9 @@
 		584266051E3FC831006E010E /* TwitterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterTableViewCell.h; sourceTree = "<group>"; };
 		584266061E3FC831006E010E /* TwitterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterTableViewCell.m; sourceTree = "<group>"; };
 		584266071E3FC831006E010E /* TwitterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwitterTableViewCell.xib; sourceTree = "<group>"; };
-		5842660F1E3FF6A7006E010E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		584266101E3FF6A7006E010E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = LoginViewController.m; sourceTree = "<group>"; };
-		584266111E3FF6A7006E010E /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		5842660F1E3FF6A7006E010E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		584266101E3FF6A7006E010E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		584266111E3FF6A7006E010E /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		584266141E3FF7D4006E010E /* TwitterClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterClient.h; sourceTree = "<group>"; };
 		584266151E3FF7D4006E010E /* TwitterClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterClient.m; sourceTree = "<group>"; };
 		584266181E40063A006E010E /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
@@ -123,7 +123,6 @@
 			children = (
 				584265EA1E3FBA19006E010E /* main.m */,
 			);
-			name = "Supporting Files";
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
@@ -135,7 +134,6 @@
 				5842661B1E400645006E010E /* User.h */,
 				5842661C1E400645006E010E /* User.m */,
 			);
-			name = Models;
 			path = Models;
 			sourceTree = "<group>";
 		};
@@ -146,7 +144,6 @@
 				584266061E3FC831006E010E /* TwitterTableViewCell.m */,
 				584266071E3FC831006E010E /* TwitterTableViewCell.xib */,
 			);
-			name = TableCells;
 			path = TableCells;
 			sourceTree = "<group>";
 		};
@@ -160,7 +157,6 @@
 				584266011E3FBADA006E010E /* TwitterListViewController.m */,
 				584266021E3FBADA006E010E /* TwitterListViewController.xib */,
 			);
-			name = ViewControllers;
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
@@ -170,7 +166,6 @@
 				584266141E3FF7D4006E010E /* TwitterClient.h */,
 				584266151E3FF7D4006E010E /* TwitterClient.m */,
 			);
-			name = Libs;
 			path = Libs;
 			sourceTree = "<group>";
 		};

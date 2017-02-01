@@ -22,19 +22,20 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
-    /*TwitterListViewController *viewController = [[TwitterListViewController alloc] initWithNibName:@"TwitterListViewController" bundle:nil];
-    */
-    
-    LoginViewController *viewController = [[LoginViewController alloc] init];
-    
+
     CGRect frame = [UIScreen mainScreen].bounds;
     self.window = [[UIWindow alloc] initWithFrame:frame];
     
-    self.window.rootViewController = viewController;
-    [self.window makeKeyAndVisible];
+    if ([[TwitterClient sharedInstance] isAuthorized]) {
+        TwitterListViewController *listViewController = [[TwitterListViewController alloc] init];
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:listViewController];
+        self.window.rootViewController = navigationController;
+    } else {
+        LoginViewController *loginViewController = [[LoginViewController alloc] init];
+        self.window.rootViewController = loginViewController;
+    }
     
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

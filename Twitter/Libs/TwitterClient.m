@@ -7,11 +7,11 @@
 //
 
 #import "TwitterClient.h"
+#import "Tweet.h"
 
 NSString * const kTwitterConsumerKey = @"DJyR0jAaGBuKXcIts0YZe9oj3";
 NSString * const kTwitterConsumerSecret = @"rVRKiQ2mJmtICTDnCEUbOkap779nKRseU63wQGyWqRweR4ScGv";
 NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
-
 
 @interface TwitterClient()
 
@@ -36,7 +36,6 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
     
     self.loginCompletion = completion;
     
-    [self.requestSerializer removeAccessToken];
     [self fetchRequestTokenWithPath:@"oauth/request_token" method:@"GET" callbackURL:[NSURL URLWithString:@"cptwitterdemo://oauth"] scope:nil success:^(BDBOAuth1Credential *requestToken) {
         NSLog(@"get the request token!");
         
@@ -52,22 +51,48 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
 - (void) openURL: (NSURL *) url {
     [self fetchAccessTokenWithPath:@"oauth/access_token" method:@"POST" requestToken:[BDBOAuth1Credential credentialWithQueryString:url.query] success:^(BDBOAuth1Credential *accessToken) {
         NSLog(@"got the access token");
-        [self.requestSerializer saveAccessToken:accessToken];
-        [self GET:@"1.1/account/verify_credentials.json" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            {
-                // NSLog(@"current user:%@", responseObject);
-                User *user = [[User alloc] initWithDictionary:responseObject];
-                NSLog(@"current user name %@", user.name);
-                self.loginCompletion(user, nil);
-            }
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"failed to veirfy");
-            self.loginCompletion(nil, error);
+        
+        // just set access token to access token manager
+        // [[AccessTokenManager sharedInstance]  setAccessToken:accessToken];
+        [self verifyCredential:^(User *user, NSError *error) {
+            self.loginCompletion(user, error);
         }];
     } failure:^(NSError *error) {
         NSLog(@"failed to get the access token");
     }];
 
+}
+
+- (void)verifyCredential:(void (^)(User *user, NSError *error))completion
+{
+    // BDBOAuth1Credential *accessToken = [[AccessTokenManager sharedInstance] getAccessToken];
+    // [self.requestSerializer saveAccessToken:accessToken];
+    [self GET:@"1.1/account/verify_credentials.json" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        {
+            User *user = [[User alloc] initWithDictionary:responseObject];
+            NSLog(@"credential verified, current user name %@", user.name);
+            completion(user, nil);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"failed to veirfy");
+        completion(nil, error);
+    }];
+}
+
+- (void)getTweets:(void (^)(NSArray<Tweet *> *tweets, NSError *error))completion;
+{
+    [self GET:@"1.1/statuses/home_timeline.json" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        {
+            NSArray *tweets = [Tweet tweetsWithArray:responseObject];
+            for (Tweet *tweet in tweets) {
+                NSLog(@"tweet: %@, created: %@", tweet.text, tweet.createdAt);
+            }
+            completion(tweets, nil);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"failed to veirfy");
+        completion(nil, error);
+    }];
 }
 
 @end

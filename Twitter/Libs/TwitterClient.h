@@ -7,11 +7,14 @@
 //
 
 #import <BDBOAuth1Manager/BDBOAuth1SessionManager.h>
+#import "Tweet.h"
 #import "User.h"
 
 @interface TwitterClient : BDBOAuth1SessionManager
 
 + (TwitterClient *) sharedInstance;
 - (void)loginWithCompletion:(void (^)(User *user, NSError *error))completion;
+- (void)verifyCredential:(void (^)(User *user, NSError *error))completion;
+- (void)getTweets:(void (^)(NSArray<Tweet *> *tweets, NSError *error))completion;
 - (void)openURL:(NSURL *) url;
 @end

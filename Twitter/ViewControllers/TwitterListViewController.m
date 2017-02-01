@@ -8,9 +8,12 @@
 
 #import "TwitterListViewController.h"
 #import "TwitterTableViewCell.h"
+#import "TwitterClient.h"
+#import "Tweet.h"
 
 @interface TwitterListViewController () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray<Tweet *> *tweets;
 
 @end
 
@@ -20,12 +23,15 @@
     [super viewDidLoad];
 
     self.tableView.dataSource = self;
-    self.tableView.estimatedRowHeight = 200;
+    self.tableView.estimatedRowHeight = 250;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 
     UINib *nib = [UINib nibWithNibName:@"TwitterTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"TwitterTableViewCell"];
-
+    [[TwitterClient sharedInstance] getTweets:^(NSArray<Tweet *> *tweets, NSError *error) {
+        self.tweets = tweets;
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,22 +42,18 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return self.tweets.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    
     TwitterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TwitterTableViewCell" forIndexPath:indexPath];
-    
-    if (indexPath.row % 2) {
-        cell.retweetHeightConstaints.constant = 0;
-    } else {
-        cell.retweetHeightConstaints.constant = 24;
-    }
-    
+    Tweet *tweet = [self.tweets objectAtIndex:indexPath.row];
+    [cell initFromTweetObject:tweet];
     [cell needsUpdateConstraints];
-    
     return cell;
 }
 
