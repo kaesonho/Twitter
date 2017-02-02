@@ -8,6 +8,7 @@
 
 #import "TwitterTableViewCell.h"
 #import "ComposeViewController.h"
+#import "ProfileViewController.h"
 #import "Tweet.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
@@ -22,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @property (weak, nonatomic) IBOutlet UILabel *retweetLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *retweetHeightConstraint;
-
+@property (weak, nonatomic) Tweet *tweet;
 
 @end
 
@@ -50,6 +51,7 @@
 
 - (void) initFromTweetObject: (Tweet *)tweet
 {
+    self.tweet = tweet;
     self.contentLabel.text = tweet.text;
     self.nameLabel.text = tweet.user.name;
     self.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
@@ -71,6 +73,12 @@
     } else {
         [self.likeButton.imageView setImage:[UIImage imageNamed:@"favor-icon@2x.png"]];
     }
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onImageTapped)];
+    singleTap.numberOfTapsRequired = 1;
+    
+    [self.profileImageView setUserInteractionEnabled:YES];
+    [self.profileImageView addGestureRecognizer:singleTap];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -83,9 +91,16 @@
     ComposeViewController *viewController = [[ComposeViewController alloc]init];
     [self.viewController presentViewController:viewController animated:YES completion:nil];
 }
+
 - (IBAction)onRetweetClicked:(id)sender {
     ComposeViewController *viewController = [[ComposeViewController alloc]init];
     [self.viewController presentViewController:viewController animated:YES completion:nil];
+}
+
+-(void) onImageTapped {
+    ProfileViewController *viewController = [[ProfileViewController alloc]init];
+    [viewController setUser: self.tweet.user];
+    [self.viewController.navigationController pushViewController:viewController animated:YES];
 }
 
 @end
