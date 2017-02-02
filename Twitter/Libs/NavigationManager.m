@@ -45,41 +45,37 @@
     return self.navigationController;
 }
 
+- (UINavigationController *) generateTabController: (UIViewController *)viewController forTitle:(NSString *)title  forImg:(NSString *)img forTag:(int) tag
+{
+    viewController.title = title;
+    UITabBarItem *homeTabBarItem = [[UITabBarItem alloc] initWithTitle:title image:[UIImage imageNamed:img] tag:tag];
+    viewController.tabBarItem = homeTabBarItem;
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    [navController.navigationBar setBarTintColor:[UIColor colorWithRed:0.21 green:0.47 blue:0.71 alpha:1.0]];
+    [navController.navigationBar setTintColor:[UIColor whiteColor]];
+    [navController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+    
+    return navController;
+}
+
 - (UIViewController *)loggedInVC
 {
+    // home
     TwitterListViewController *homeViewController = [[TwitterListViewController alloc] initWithNibName:@"TwitterListViewController" bundle:nil];
-    homeViewController.title = @"Home";
-    UITabBarItem *homeTabBarItem = [[UITabBarItem alloc] initWithTitle:@"Home" image:[UIImage imageNamed:@"home-icon@2x.png"] tag:0];
-    homeViewController.tabBarItem = homeTabBarItem;
-    UINavigationController *homeNavController = [[UINavigationController alloc] initWithRootViewController:homeViewController];
-    [homeNavController.navigationBar setBarTintColor:[UIColor colorWithRed:0.21 green:0.47 blue:0.71 alpha:1.0]];
-    [homeNavController.navigationBar setTintColor:[UIColor whiteColor]];
-    [homeNavController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
-
+    UINavigationController *homeNavController = [self generateTabController: homeViewController forTitle:@"Home" forImg: @"home-icon@2x.png" forTag:0];
+    
+    // mentions?
     TwitterListViewController *mentionsViewController = [[TwitterListViewController alloc] initWithNibName:@"TwitterListViewController" bundle:nil];
-    mentionsViewController.title = @"Mentions";
-    UITabBarItem *mentionsTabBarItem = [[UITabBarItem alloc] initWithTitle:@"Mentions" image:[UIImage imageNamed:@"moment-icon@2x.png"] tag:1];
-    mentionsViewController.tabBarItem = mentionsTabBarItem;
-    UINavigationController *mentionsNavController = [[UINavigationController alloc] initWithRootViewController:mentionsViewController];
-    [mentionsNavController.navigationBar setBarTintColor:[UIColor colorWithRed:0.21 green:0.47 blue:0.71 alpha:1.0]];
-    [mentionsNavController.navigationBar setTintColor:[UIColor whiteColor]];
-    [mentionsNavController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+    UINavigationController *mentionsNavController = [self generateTabController: mentionsViewController forTitle:@"Mentions" forImg: @"moment-icon@2x.png" forTag:1];
     
+    // profile
     ProfileViewController *profileViewController = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
-    profileViewController.title = @"Profile";
-    UITabBarItem *profileTabBarItem = [[UITabBarItem alloc] initWithTitle:@"Profile" image:[UIImage imageNamed:@"profile-icon@2x.png"] tag:2];
-    profileViewController.tabBarItem = profileTabBarItem;
-    UINavigationController *profileNavController = [[UINavigationController alloc] initWithRootViewController:profileViewController];
-    [profileNavController.navigationBar setBarTintColor:[UIColor colorWithRed:0.21 green:0.47 blue:0.71 alpha:1.0]];
-    [profileNavController.navigationBar setTintColor:[UIColor whiteColor]];
-    [profileNavController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
-    
-    // create tab bar view controller
+    UINavigationController *profileNavController = [self generateTabController: profileViewController forTitle:@"Profile" forImg: @"profile-icon@2x.png" forTag:1];
+
     UITabBarController *tabController = [[UITabBarController alloc] init];
     [tabController.tabBar setTintColor:[UIColor whiteColor]];
     [tabController.tabBar setBarTintColor:[UIColor colorWithRed:0.21 green:0.47 blue:0.71 alpha:1.0]];
-    // Add navigation controller to tab bar controller
-    tabController.viewControllers = @[homeNavController, mentionsNavController, profileNavController];
+    tabController.viewControllers = @[homeNavController, profileNavController];
     
     return tabController;
 }

@@ -100,6 +100,8 @@
 		58E1C8691E4300BE0069CC71 /* TwitterLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E1C8211E4300BE0069CC71 /* TwitterLogo.png */; };
 		58E1C86A1E4300BE0069CC71 /* TwitterLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E1C8221E4300BE0069CC71 /* TwitterLogo@2x.png */; };
 		58E1C86B1E4300BE0069CC71 /* TwitterLogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E1C8231E4300BE0069CC71 /* TwitterLogo@3x.png */; };
+		58E1C86D1E43C1180069CC71 /* iconmonstr-location-1-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E1C86C1E43C1180069CC71 /* iconmonstr-location-1-32.png */; };
+		58E1C86F1E43C1FA0069CC71 /* iconmonstr-location-1-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E1C86E1E43C1FA0069CC71 /* iconmonstr-location-1-24.png */; };
 		A509EC53194A56CBEA08CC6C /* libPods-Twitter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0743C3F405AF823FE478C97C /* libPods-Twitter.a */; };
 /* End PBXBuildFile section */
 
@@ -211,6 +213,8 @@
 		58E1C8211E4300BE0069CC71 /* TwitterLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TwitterLogo.png; path = "../../../../Downloads/twitter icons/TwitterLogo.png"; sourceTree = "<group>"; };
 		58E1C8221E4300BE0069CC71 /* TwitterLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TwitterLogo@2x.png"; path = "../../../../Downloads/twitter icons/TwitterLogo@2x.png"; sourceTree = "<group>"; };
 		58E1C8231E4300BE0069CC71 /* TwitterLogo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TwitterLogo@3x.png"; path = "../../../../Downloads/twitter icons/TwitterLogo@3x.png"; sourceTree = "<group>"; };
+		58E1C86C1E43C1180069CC71 /* iconmonstr-location-1-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconmonstr-location-1-32.png"; sourceTree = "<group>"; };
+		58E1C86E1E43C1FA0069CC71 /* iconmonstr-location-1-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconmonstr-location-1-24.png"; sourceTree = "<group>"; };
 		8D9D6567529E93CC544377C8 /* Pods-Twitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter/Pods-Twitter.debug.xcconfig"; sourceTree = "<group>"; };
 		E4C549B0871EEDC6403D6BD8 /* Pods-Twitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter/Pods-Twitter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -346,6 +350,8 @@
 		584266261E42969A006E010E /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				58E1C86E1E43C1FA0069CC71 /* iconmonstr-location-1-24.png */,
+				58E1C86C1E43C1180069CC71 /* iconmonstr-location-1-32.png */,
 				58E1C8211E4300BE0069CC71 /* TwitterLogo.png */,
 				58E1C8221E4300BE0069CC71 /* TwitterLogo@2x.png */,
 				58E1C8231E4300BE0069CC71 /* TwitterLogo@3x.png */,
@@ -419,7 +425,6 @@
 				58E1C81F1E4300BE0069CC71 /* twitter-icon@2x.png */,
 				58E1C8201E4300BE0069CC71 /* twitter-icon@3x.png */,
 			);
-			name = Icons;
 			path = Icons;
 			sourceTree = "<group>";
 		};
@@ -547,6 +552,7 @@
 				58E1C7DB1E42F1C10069CC71 /* ComposeViewController.xib in Resources */,
 				58E1C83F1E4300BE0069CC71 /* gif-icon.png in Resources */,
 				58E1C8471E4300BE0069CC71 /* message-icon@3x.png in Resources */,
+				58E1C86D1E43C1180069CC71 /* iconmonstr-location-1-32.png in Resources */,
 				58E1C8391E4300BE0069CC71 /* favor-icon-red.png in Resources */,
 				58E1C8461E4300BE0069CC71 /* message-icon@2x.png in Resources */,
 				58E1C8681E4300BE0069CC71 /* twitter-icon@3x.png in Resources */,
@@ -559,6 +565,7 @@
 				58E1C8641E4300BE0069CC71 /* twiiter-logo-60@3x.png in Resources */,
 				58E1C8591E4300BE0069CC71 /* retweet-icon@3x.png in Resources */,
 				58E1C8611E4300BE0069CC71 /* twiiter-logo-40@2x.png in Resources */,
+				58E1C86F1E43C1FA0069CC71 /* iconmonstr-location-1-24.png in Resources */,
 				58E1C85F1E4300BE0069CC71 /* twiiter-logo-29@2x.png in Resources */,
 				58E1C82D1E4300BE0069CC71 /* back-icon.png in Resources */,
 				58E1C82B1E4300BE0069CC71 /* back-icon-white@2x.png in Resources */,

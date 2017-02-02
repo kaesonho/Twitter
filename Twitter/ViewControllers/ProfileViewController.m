@@ -7,8 +7,17 @@
 //
 
 #import "ProfileViewController.h"
+#import "TwitterClient.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 @interface ProfileViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *bannerImage;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImage;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *handlingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *followingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *followerLabel;
 
 @end
 
@@ -16,8 +25,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.title = self.user.name;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    if (self.user == nil) {
+        [[TwitterClient sharedInstance] verifyCredential:^(User *user, NSError *error) {
+            self.user = user;
+            [self updateView];
+        }];
+    } else {
+        [self updateView];
+    }
+}
+
+- (void) updateView {
+    [self.bannerImage setImageWithURL:self.user.bannerImageUrl];
+    [self.profileImage setImageWithURL:self.user.profileImageUrl];
+    self.nameLabel.text = self.user.name;
+    self.locationLabel.text = self.user.location;
+    self.handlingLabel.text = [NSString stringWithFormat:@"@%@", self.user.screenName];
+    self.followerLabel.text = self.user.followersCount;
+    self.followingLabel.text = self.user.followingsCount;
 }
 
 - (void)didReceiveMemoryWarning {

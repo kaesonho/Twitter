@@ -47,7 +47,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6D-i9-spi" userLabel="Image Container">
                         <rect key="frame" x="0.0" y="24" width="68" height="224"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DSc-C1-z4s">
+                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DSc-C1-z4s">
                                 <rect key="frame" x="8" y="8" width="52" height="52"/>
                                 <color key="backgroundColor" red="1" green="0.76522532208274274" blue="0.27518989406297223" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
