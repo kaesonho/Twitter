@@ -61,7 +61,9 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     DetailViewController *viewController = [[DetailViewController alloc]init];
+    [viewController setTweet:[self.tweets objectAtIndex:indexPath.row]];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

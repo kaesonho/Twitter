@@ -7,8 +7,17 @@
 //
 
 #import "DetailViewController.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 @interface DetailViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *handleLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImage;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *retweetCount;
+@property (weak, nonatomic) IBOutlet UILabel *likeCount;
+@property (weak, nonatomic) Tweet *tweet;
+
 
 @end
 
@@ -16,7 +25,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    self.nameLabel.text = self.tweet.user.name;
+    self.handleLabel.text = [NSString stringWithFormat:@"@%@", self.tweet.user.screenName];
+    self.contentLabel.text = self.tweet.text;
+    [self.profileImage setImageWithURL:self.tweet.user.profileImageUrl];
+    self.retweetCount.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
+    self.likeCount.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
 }
 
 - (void)didReceiveMemoryWarning {

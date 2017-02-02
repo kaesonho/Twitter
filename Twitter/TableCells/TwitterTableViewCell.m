@@ -54,8 +54,7 @@
     self.nameLabel.text = tweet.user.name;
     self.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
     self.timeLabel.text = [self getReletiveTime: tweet.createdAt];
-    NSURL *profileImageUrl = [NSURL URLWithString:tweet.user.profileImageUrl];
-    [self.profileImageView setImageWithURL: profileImageUrl];
+    [self.profileImageView setImageWithURL: tweet.user.profileImageUrl];
     
     self.retweetButton.titleLabel.text = [NSString stringWithFormat:@" %d", tweet.retweetCount];
     self.likeButton.titleLabel.text = [NSString stringWithFormat:@" %d", tweet.favoriteCount];
