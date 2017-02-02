@@ -10,6 +10,7 @@
 #import "TwitterListViewController.h"
 #import "LoginViewController.h"
 #import "TwitterClient.h"
+#import "NavigationManager.h"
 #import <BDBOAuth1Manager/BDBOAuth1RequestSerializer.h>
 #import "User.h"
 #import "Tweet.h"
@@ -25,14 +26,14 @@
 
     CGRect frame = [UIScreen mainScreen].bounds;
     self.window = [[UIWindow alloc] initWithFrame:frame];
+    NavigationManager *navigationManager = [NavigationManager shared];
+    
+    self.window.rootViewController = [navigationManager rootViewController];
     
     if ([[TwitterClient sharedInstance] isAuthorized]) {
-        TwitterListViewController *listViewController = [[TwitterListViewController alloc] init];
-        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:listViewController];
-        self.window.rootViewController = navigationController;
+        [navigationManager logIn];
     } else {
-        LoginViewController *loginViewController = [[LoginViewController alloc] init];
-        self.window.rootViewController = loginViewController;
+        [navigationManager logOut];
     }
     
     [self.window makeKeyAndVisible];

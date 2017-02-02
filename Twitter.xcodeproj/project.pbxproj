@@ -21,6 +21,14 @@
 		584266161E3FF7D4006E010E /* TwitterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 584266151E3FF7D4006E010E /* TwitterClient.m */; };
 		5842661A1E40063A006E010E /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 584266191E40063A006E010E /* Tweet.m */; };
 		5842661D1E400645006E010E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5842661C1E400645006E010E /* User.m */; };
+		5842662A1E4296AC006E010E /* iconmonstr-speech-bubble-26-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 584266271E4296AC006E010E /* iconmonstr-speech-bubble-26-24.png */; };
+		5842662B1E4296AC006E010E /* iconmonstr-favorite-1-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 584266281E4296AC006E010E /* iconmonstr-favorite-1-24.png */; };
+		5842662C1E4296AC006E010E /* iconmonstr-retweet-1-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 584266291E4296AC006E010E /* iconmonstr-retweet-1-24.png */; };
+		5842662E1E429772006E010E /* iconmonstr-favorite-1-16.png in Resources */ = {isa = PBXBuildFile; fileRef = 5842662D1E429772006E010E /* iconmonstr-favorite-1-16.png */; };
+		584266301E429928006E010E /* iconmonstr-arrow-60-16.png in Resources */ = {isa = PBXBuildFile; fileRef = 5842662F1E429928006E010E /* iconmonstr-arrow-60-16.png */; };
+		584266341E42A98A006E010E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584266321E42A98A006E010E /* DetailViewController.m */; };
+		584266351E42A98A006E010E /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 584266331E42A98A006E010E /* DetailViewController.xib */; };
+		584266381E42BBBE006E010E /* NavigationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 584266371E42BBBE006E010E /* NavigationManager.m */; };
 		A509EC53194A56CBEA08CC6C /* libPods-Twitter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0743C3F405AF823FE478C97C /* libPods-Twitter.a */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +57,16 @@
 		584266191E40063A006E010E /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
 		5842661B1E400645006E010E /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		5842661C1E400645006E010E /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		584266271E4296AC006E010E /* iconmonstr-speech-bubble-26-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iconmonstr-speech-bubble-26-24.png"; path = "../../../Downloads/iconmonstr-speech-bubble-26-24.png"; sourceTree = "<group>"; };
+		584266281E4296AC006E010E /* iconmonstr-favorite-1-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iconmonstr-favorite-1-24.png"; path = "../../../Downloads/iconmonstr-favorite-1-24.png"; sourceTree = "<group>"; };
+		584266291E4296AC006E010E /* iconmonstr-retweet-1-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iconmonstr-retweet-1-24.png"; path = "../../../Downloads/iconmonstr-retweet-1-24.png"; sourceTree = "<group>"; };
+		5842662D1E429772006E010E /* iconmonstr-favorite-1-16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iconmonstr-favorite-1-16.png"; path = "../../../Downloads/iconmonstr-favorite-1-16.png"; sourceTree = "<group>"; };
+		5842662F1E429928006E010E /* iconmonstr-arrow-60-16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iconmonstr-arrow-60-16.png"; path = "../../../Downloads/iconmonstr-arrow-60-16.png"; sourceTree = "<group>"; };
+		584266311E42A98A006E010E /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		584266321E42A98A006E010E /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		584266331E42A98A006E010E /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		584266361E42BBBE006E010E /* NavigationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationManager.h; sourceTree = "<group>"; };
+		584266371E42BBBE006E010E /* NavigationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationManager.m; sourceTree = "<group>"; };
 		8D9D6567529E93CC544377C8 /* Pods-Twitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter/Pods-Twitter.debug.xcconfig"; sourceTree = "<group>"; };
 		E4C549B0871EEDC6403D6BD8 /* Pods-Twitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter/Pods-Twitter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +121,7 @@
 		584265E81E3FBA19006E010E /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				584266261E42969A006E010E /* Icons */,
 				584266221E410EBF006E010E /* Libs */,
 				584266171E4005D5006E010E /* Models */,
 				584265E91E3FBA19006E010E /* Supporting Files */,
@@ -150,6 +169,9 @@
 		584266211E410EA7006E010E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				584266311E42A98A006E010E /* DetailViewController.h */,
+				584266321E42A98A006E010E /* DetailViewController.m */,
+				584266331E42A98A006E010E /* DetailViewController.xib */,
 				5842660F1E3FF6A7006E010E /* LoginViewController.h */,
 				584266101E3FF6A7006E010E /* LoginViewController.m */,
 				584266111E3FF6A7006E010E /* LoginViewController.xib */,
@@ -163,10 +185,24 @@
 		584266221E410EBF006E010E /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				584266361E42BBBE006E010E /* NavigationManager.h */,
+				584266371E42BBBE006E010E /* NavigationManager.m */,
 				584266141E3FF7D4006E010E /* TwitterClient.h */,
 				584266151E3FF7D4006E010E /* TwitterClient.m */,
 			);
 			path = Libs;
+			sourceTree = "<group>";
+		};
+		584266261E42969A006E010E /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				5842662F1E429928006E010E /* iconmonstr-arrow-60-16.png */,
+				584266271E4296AC006E010E /* iconmonstr-speech-bubble-26-24.png */,
+				5842662D1E429772006E010E /* iconmonstr-favorite-1-16.png */,
+				584266281E4296AC006E010E /* iconmonstr-favorite-1-24.png */,
+				584266291E4296AC006E010E /* iconmonstr-retweet-1-24.png */,
+			);
+			name = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,9 +267,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				584266041E3FBADA006E010E /* TwitterListViewController.xib in Resources */,
+				5842662B1E4296AC006E010E /* iconmonstr-favorite-1-24.png in Resources */,
+				5842662C1E4296AC006E010E /* iconmonstr-retweet-1-24.png in Resources */,
 				584265F91E3FBA19006E010E /* LaunchScreen.storyboard in Resources */,
+				5842662E1E429772006E010E /* iconmonstr-favorite-1-16.png in Resources */,
 				584266131E3FF6A7006E010E /* LoginViewController.xib in Resources */,
 				584265F61E3FBA19006E010E /* Assets.xcassets in Resources */,
+				584266351E42A98A006E010E /* DetailViewController.xib in Resources */,
+				5842662A1E4296AC006E010E /* iconmonstr-speech-bubble-26-24.png in Resources */,
+				584266301E429928006E010E /* iconmonstr-arrow-60-16.png in Resources */,
 				584266091E3FC831006E010E /* TwitterTableViewCell.xib in Resources */,
 				584265F41E3FBA19006E010E /* Main.storyboard in Resources */,
 			);
@@ -296,6 +338,8 @@
 			files = (
 				5842661D1E400645006E010E /* User.m in Sources */,
 				584266031E3FBADA006E010E /* TwitterListViewController.m in Sources */,
+				584266341E42A98A006E010E /* DetailViewController.m in Sources */,
+				584266381E42BBBE006E010E /* NavigationManager.m in Sources */,
 				584265EE1E3FBA19006E010E /* AppDelegate.m in Sources */,
 				584265EB1E3FBA19006E010E /* main.m in Sources */,
 				5842661A1E40063A006E010E /* Tweet.m in Sources */,

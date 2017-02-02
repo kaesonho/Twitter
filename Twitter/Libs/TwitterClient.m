@@ -84,9 +84,6 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
     [self GET:@"1.1/statuses/home_timeline.json" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         {
             NSArray *tweets = [Tweet tweetsWithArray:responseObject];
-            for (Tweet *tweet in tweets) {
-                NSLog(@"tweet: %@, created: %@", tweet.text, tweet.createdAt);
-            }
             completion(tweets, nil);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

@@ -9,9 +9,10 @@
 #import "TwitterListViewController.h"
 #import "TwitterTableViewCell.h"
 #import "TwitterClient.h"
+#import "DetailViewController.h"
 #import "Tweet.h"
 
-@interface TwitterListViewController () <UITableViewDataSource>
+@interface TwitterListViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray<Tweet *> *tweets;
 
@@ -23,6 +24,7 @@
     [super viewDidLoad];
 
     self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     self.tableView.estimatedRowHeight = 250;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 
@@ -57,5 +59,10 @@
     return cell;
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DetailViewController *viewController = [[DetailViewController alloc]init];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
 
 @end

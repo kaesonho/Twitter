@@ -7,6 +7,7 @@
 //
 
 #import "TwitterTableViewCell.h"
+#import "DetailViewController.h"
 #import "Tweet.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
@@ -19,8 +20,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *replyButton;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *retweetHeightConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *retweetLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *retweetHeightConstraint;
 
 
 @end
@@ -37,25 +38,39 @@
 
 }
 
+- (NSString *) getReletiveTime: (NSDate *) createdAt
+{
+    NSDateComponentsFormatter *formatter = [[NSDateComponentsFormatter alloc] init];
+    formatter.unitsStyle = NSDateComponentsFormatterUnitsStyleAbbreviated;
+    formatter.allowedUnits = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    formatter.maximumUnitCount = 1;
+    NSString *elapsed = [formatter stringFromDate:createdAt toDate:[NSDate date]];
+    return elapsed;
+}
+
 - (void) initFromTweetObject: (Tweet *)tweet
 {
     self.contentLabel.text = tweet.text;
     self.nameLabel.text = tweet.user.name;
     self.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
-    // self.timeLabel.text = [tweet.createdAt timeIntervalSinceNow];
+    self.timeLabel.text = [self getReletiveTime: tweet.createdAt];
     NSURL *profileImageUrl = [NSURL URLWithString:tweet.user.profileImageUrl];
     [self.profileImageView setImageWithURL: profileImageUrl];
     
+    self.retweetButton.titleLabel.text = [NSString stringWithFormat:@" %d", tweet.retweetCount];
+    self.likeButton.titleLabel.text = [NSString stringWithFormat:@" %d", tweet.favoriteCount];
+    
     if (tweet.retweetUser == nil) {
-        self.retweetHeightConstaints.constant = 0;
+        self.retweetHeightConstraint.constant = 0;
     } else {
+        self.retweetHeightConstraint.constant = 24;
         self.retweetLabel.text = [NSString stringWithFormat:@"%@ Retweeted",  tweet.retweetUser.name ];
     }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 
