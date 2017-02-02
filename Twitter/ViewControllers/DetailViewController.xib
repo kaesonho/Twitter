@@ -13,16 +13,20 @@
             <connections>
                 <outlet property="contentLabel" destination="Qs8-jq-PhX" id="U0h-rh-8KI"/>
                 <outlet property="handleLabel" destination="yAh-47-hXk" id="enp-ri-ciw"/>
+                <outlet property="likeButton" destination="8gz-vh-t4B" id="zAw-lQ-8PJ"/>
                 <outlet property="likeCount" destination="HEt-Gp-JpZ" id="yP1-2F-P39"/>
                 <outlet property="nameLabel" destination="JlT-qI-G9Q" id="jwC-hU-YRu"/>
                 <outlet property="profileImage" destination="tcT-ks-13i" id="76G-Se-O2S"/>
+                <outlet property="replyButton" destination="awn-h4-Akw" id="R3d-Ta-f93"/>
+                <outlet property="retweetButton" destination="P2w-73-owW" id="fMv-in-TMD"/>
                 <outlet property="retweetCount" destination="30j-oP-qdw" id="Omx-7P-kWr"/>
+                <outlet property="timeLabel" destination="EB8-lO-ITU" id="O0J-XY-QJo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oKn-te-DLU" userLabel="Retweet Container">
@@ -49,21 +53,21 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JlT-qI-G9Q">
-                            <rect key="frame" x="109" y="12" width="50.5" height="21.5"/>
+                            <rect key="frame" x="109" y="22" width="56" height="24"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" id="Hsj-dq-x2a"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Handling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAh-47-hXk">
-                            <rect key="frame" x="109" y="41.5" width="68" height="20.5"/>
+                            <rect key="frame" x="109" y="54" width="68" height="20.5"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" id="Kpg-1J-VAG"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" white="0.25" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -74,17 +78,16 @@
                         <constraint firstItem="tcT-ks-13i" firstAttribute="leading" secondItem="eri-gs-ZjI" secondAttribute="leading" constant="12" id="Ic9-ki-rP6"/>
                         <constraint firstItem="yAh-47-hXk" firstAttribute="leading" secondItem="JlT-qI-G9Q" secondAttribute="leading" id="Tz6-hg-y8t"/>
                         <constraint firstAttribute="height" constant="100" id="Yo9-cT-6lJ"/>
-                        <constraint firstItem="JlT-qI-G9Q" firstAttribute="top" secondItem="tcT-ks-13i" secondAttribute="top" id="ptS-jC-EpM"/>
+                        <constraint firstItem="JlT-qI-G9Q" firstAttribute="top" secondItem="tcT-ks-13i" secondAttribute="top" constant="10" id="ptS-jC-EpM"/>
                         <constraint firstItem="JlT-qI-G9Q" firstAttribute="leading" secondItem="tcT-ks-13i" secondAttribute="trailing" constant="17" id="xgZ-TH-tyS"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXV-1k-HPb" userLabel="Content Container">
-                    <rect key="frame" x="0.0" y="132" width="375" height="305.5"/>
+                    <rect key="frame" x="0.0" y="132" width="375" height="20.5"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qs8-jq-PhX">
-                            <rect key="frame" x="10" y="10" width="355" height="305.5"/>
-                            <mutableString key="text">Tweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf sTweet Content sdfsd f sdf sf s</mutableString>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet Content " lineBreakMode="wordWrap" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qs8-jq-PhX">
+                            <rect key="frame" x="10" y="10" width="355" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -98,13 +101,13 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GmA-9u-0gF" userLabel="Time Container">
-                    <rect key="frame" x="0.0" y="457.5" width="375" height="30"/>
+                    <rect key="frame" x="0.0" y="172.5" width="375" height="30"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EB8-lO-ITU">
-                            <rect key="frame" x="8" y="9" width="42" height="21"/>
+                            <rect key="frame" x="8" y="9" width="216" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" white="0.25" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -114,7 +117,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sno-O0-gOA" userLabel="Status Container">
-                    <rect key="frame" x="0.0" y="497.5" width="375" height="40"/>
+                    <rect key="frame" x="0.0" y="212.5" width="375" height="40"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30j-oP-qdw">
                             <rect key="frame" x="8" y="10.5" width="10.5" height="20.5"/>
@@ -131,13 +134,13 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RETWEETS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXa-gX-74I">
                             <rect key="frame" x="26.5" y="10.5" width="87.5" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" white="0.25" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIKES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rD5-8d-46T">
                             <rect key="frame" x="163.5" y="10.5" width="44.5" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" white="0.25" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -163,19 +166,25 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="FKy-WS-Rit" userLabel="Social Stack View">
-                    <rect key="frame" x="0.0" y="537.5" width="375" height="50"/>
+                    <rect key="frame" x="0.0" y="252.5" width="375" height="50"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awn-h4-Akw">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awn-h4-Akw">
                             <rect key="frame" x="0.0" y="0.0" width="125" height="50"/>
-                            <state key="normal" title="Button"/>
+                            <state key="normal" image="reply-icon@2x.png"/>
+                            <connections>
+                                <action selector="onReplyClick:" destination="-1" eventType="touchUpInside" id="nCd-lc-6gC"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2w-73-owW">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2w-73-owW">
                             <rect key="frame" x="125" y="0.0" width="125" height="50"/>
-                            <state key="normal" title="Button"/>
+                            <state key="normal" image="retweet-icon@2x.png"/>
+                            <connections>
+                                <action selector="onRetweetClick:" destination="-1" eventType="touchUpInside" id="onf-HA-4Jx"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gz-vh-t4B">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gz-vh-t4B">
                             <rect key="frame" x="250" y="0.0" width="125" height="50"/>
-                            <state key="normal" title="Button"/>
+                            <state key="normal" image="favor-icon@2x.png"/>
                         </button>
                     </subviews>
                     <constraints>
@@ -204,8 +213,12 @@
                 <constraint firstItem="FKy-WS-Rit" firstAttribute="top" secondItem="Sno-O0-gOA" secondAttribute="bottom" id="zUN-bG-YOw"/>
                 <constraint firstItem="FKy-WS-Rit" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zbH-lo-Q8z"/>
             </constraints>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <point key="canvasLocation" x="283.5" y="317.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="favor-icon@2x.png" width="16" height="16"/>
+        <image name="reply-icon@2x.png" width="16" height="16"/>
+        <image name="retweet-icon@2x.png" width="16" height="16"/>
+    </resources>
 </document>

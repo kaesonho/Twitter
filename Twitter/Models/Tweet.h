@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSDate *createdAt;
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) User *retweetUser;
+@property bool liked;
 @property int favoriteCount;
 @property int retweetCount;
 

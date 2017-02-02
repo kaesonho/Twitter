@@ -51,11 +51,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    
     TwitterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TwitterTableViewCell" forIndexPath:indexPath];
     Tweet *tweet = [self.tweets objectAtIndex:indexPath.row];
     [cell initFromTweetObject:tweet];
     [cell needsUpdateConstraints];
+    [cell setViewController:self];
     return cell;
 }
 
@@ -65,6 +65,7 @@
     DetailViewController *viewController = [[DetailViewController alloc]init];
     [viewController setTweet:[self.tweets objectAtIndex:indexPath.row]];
     [self.navigationController pushViewController:viewController animated:YES];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 @end

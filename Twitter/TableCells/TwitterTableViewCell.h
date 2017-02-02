@@ -11,6 +11,8 @@
 
 @interface TwitterTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) UIViewController *viewController;
+
 - (void) initFromTweetObject: (Tweet *)tweet;
 
 @end

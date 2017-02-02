@@ -7,7 +7,7 @@
 //
 
 #import "TwitterTableViewCell.h"
-#import "DetailViewController.h"
+#import "ComposeViewController.h"
 #import "Tweet.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
@@ -65,12 +65,27 @@
         self.retweetHeightConstraint.constant = 24;
         self.retweetLabel.text = [NSString stringWithFormat:@"%@ Retweeted",  tweet.retweetUser.name ];
     }
+    
+    if (tweet.liked) {
+        [self.likeButton.imageView setImage:[UIImage imageNamed:@"favor-icon-red@2x.png"]];
+    } else {
+        [self.likeButton.imageView setImage:[UIImage imageNamed:@"favor-icon@2x.png"]];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     
     // Configure the view for the selected state
+}
+
+- (IBAction)onReplyClicked:(id)sender {
+    ComposeViewController *viewController = [[ComposeViewController alloc]init];
+    [self.viewController presentViewController:viewController animated:YES completion:nil];
+}
+- (IBAction)onRetweetClicked:(id)sender {
+    ComposeViewController *viewController = [[ComposeViewController alloc]init];
+    [self.viewController presentViewController:viewController animated:YES completion:nil];
 }
 
 @end

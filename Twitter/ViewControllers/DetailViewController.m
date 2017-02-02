@@ -8,6 +8,7 @@
 
 #import "DetailViewController.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
+#import "ComposeViewController.h"
 
 @interface DetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -17,6 +18,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *retweetCount;
 @property (weak, nonatomic) IBOutlet UILabel *likeCount;
 @property (weak, nonatomic) Tweet *tweet;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *replyButton;
+@property (weak, nonatomic) IBOutlet UIButton *retweetButton;
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
 
 
 @end
@@ -25,13 +30,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+ 
     self.nameLabel.text = self.tweet.user.name;
     self.handleLabel.text = [NSString stringWithFormat:@"@%@", self.tweet.user.screenName];
     self.contentLabel.text = self.tweet.text;
     [self.profileImage setImageWithURL:self.tweet.user.profileImageUrl];
     self.retweetCount.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
+    
     self.likeCount.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM/dd/yyyy HH:mm"];
+    self.timeLabel.text = [dateFormatter stringFromDate:self.tweet.createdAt];
+    if (self.tweet.liked) {
+        [self.likeButton.imageView setImage:[UIImage imageNamed:@"favor-icon-red@2x.png"]];
+    } else {
+        [self.likeButton.imageView setImage:[UIImage imageNamed:@"favor-icon@2x.png"]];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,5 +65,16 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)onReplyClick:(id)sender {
+    
+    ComposeViewController *viewController = [[ComposeViewController alloc] init];
+    
+    [self presentViewController:viewController animated:YES completion:nil];
+}
+- (IBAction)onRetweetClick:(id)sender {
+    ComposeViewController *viewController = [[ComposeViewController alloc] init];
+    
+    [self presentViewController:viewController animated:YES completion:nil];
+}
 
 @end
