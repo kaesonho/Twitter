@@ -30,7 +30,7 @@
 
     UINib *nib = [UINib nibWithNibName:@"TwitterTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"TwitterTableViewCell"];
-    [[TwitterClient sharedInstance] getTweets:^(NSArray<Tweet *> *tweets, NSError *error) {
+    [[TwitterClient sharedInstance] getTweets:self.category completion:^(NSArray<Tweet *> *tweets, NSError *error) {
         self.tweets = tweets;
         [self.tableView reloadData];
     }];

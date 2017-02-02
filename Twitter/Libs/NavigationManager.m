@@ -63,10 +63,12 @@
     // home
     TwitterListViewController *homeViewController = [[TwitterListViewController alloc] initWithNibName:@"TwitterListViewController" bundle:nil];
     UINavigationController *homeNavController = [self generateTabController: homeViewController forTitle:@"Home" forImg: @"home-icon@2x.png" forTag:0];
+    [homeViewController setCategory:@"home_timeline"];
     
     // mentions?
     TwitterListViewController *mentionsViewController = [[TwitterListViewController alloc] initWithNibName:@"TwitterListViewController" bundle:nil];
     UINavigationController *mentionsNavController = [self generateTabController: mentionsViewController forTitle:@"Mentions" forImg: @"moment-icon@2x.png" forTag:1];
+    [mentionsViewController setCategory:@"mentions_timeline"];
     
     // profile
     ProfileViewController *profileViewController = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
@@ -75,7 +77,7 @@
     UITabBarController *tabController = [[UITabBarController alloc] init];
     [tabController.tabBar setTintColor:[UIColor whiteColor]];
     [tabController.tabBar setBarTintColor:[UIColor colorWithRed:0.21 green:0.47 blue:0.71 alpha:1.0]];
-    tabController.viewControllers = @[homeNavController, profileNavController];
+    tabController.viewControllers = @[homeNavController, mentionsNavController, profileNavController];
     
     return tabController;
 }

@@ -79,9 +79,11 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
     }];
 }
 
-- (void)getTweets:(void (^)(NSArray<Tweet *> *tweets, NSError *error))completion;
+- (void)getTweets:(NSString *) category completion:(void (^)(NSArray<Tweet *> *tweets, NSError *error))completion
 {
-    [self GET:@"1.1/statuses/home_timeline.json" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    NSString *path = [NSString stringWithFormat:@"1.1/statuses/%@.json", category];
+    
+    [self GET:path parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         {
             NSArray *tweets = [Tweet tweetsWithArray:responseObject];
             completion(tweets, nil);
@@ -91,5 +93,19 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
         completion(nil, error);
     }];
 }
+
+- (void)getUserTweets:(NSString *)screenName completion:(void (^)(NSArray<Tweet *> *tweets, NSError *error))completion
+{
+    [self GET:@"1.1/statuses/user_timeline.json" parameters: @{@"screen_name": screenName} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        {
+            NSArray *tweets = [Tweet tweetsWithArray:responseObject];
+            completion(tweets, nil);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"failed to veirfy");
+        completion(nil, error);
+    }];
+}
+
 
 @end

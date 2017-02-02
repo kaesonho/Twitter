@@ -15,6 +15,8 @@
 + (TwitterClient *) sharedInstance;
 - (void)loginWithCompletion:(void (^)(User *user, NSError *error))completion;
 - (void)verifyCredential:(void (^)(User *user, NSError *error))completion;
-- (void)getTweets:(void (^)(NSArray<Tweet *> *tweets, NSError *error))completion;
+- (void)getTweets:(NSString *)category completion:(void (^)(NSArray<Tweet *> *tweets, NSError *error))completion;
+- (void)getUserTweets:(NSString *)screenName completion:(void (^)(NSArray<Tweet *> *tweets, NSError *error))completion;
 - (void)openURL:(NSURL *) url;
+
 @end

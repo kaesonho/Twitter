@@ -96,7 +96,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet Content" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxa-28-3ue">
-                                <rect key="frame" x="0.0" y="43.5" width="462" height="140.5"/>
+                                <rect key="frame" x="0.0" y="32.5" width="462" height="151.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -110,7 +110,7 @@
                             <constraint firstItem="w7i-0e-eh1" firstAttribute="top" secondItem="ixe-Nt-xiu" secondAttribute="top" constant="8" id="OZP-i7-Dyo"/>
                             <constraint firstItem="88p-dE-uTB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Hyd-Cf-us2" secondAttribute="trailing" constant="8" id="PXm-bQ-Ixc"/>
                             <constraint firstItem="Hyd-Cf-us2" firstAttribute="centerY" secondItem="w7i-0e-eh1" secondAttribute="centerY" id="UTa-Cs-19W"/>
-                            <constraint firstItem="Zxa-28-3ue" firstAttribute="top" secondItem="w7i-0e-eh1" secondAttribute="bottom" constant="16" id="ZOk-ZV-fxE"/>
+                            <constraint firstItem="Zxa-28-3ue" firstAttribute="top" secondItem="w7i-0e-eh1" secondAttribute="bottom" constant="5" id="ZOk-ZV-fxE"/>
                             <constraint firstItem="Hyd-Cf-us2" firstAttribute="height" secondItem="w7i-0e-eh1" secondAttribute="height" id="d9s-FN-Of1"/>
                             <constraint firstItem="Hyd-Cf-us2" firstAttribute="leading" secondItem="w7i-0e-eh1" secondAttribute="trailing" constant="6" id="iN9-7b-opZ"/>
                             <constraint firstItem="Zxa-28-3ue" firstAttribute="leading" secondItem="w7i-0e-eh1" secondAttribute="leading" id="qHJ-tH-a3O"/>

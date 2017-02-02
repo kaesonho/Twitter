@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TwitterListViewController : UIViewController
-
+@property (weak, nonatomic) NSString *category;
 @end

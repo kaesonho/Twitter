@@ -15,6 +15,7 @@
     if (self) {
         self.user = [[User alloc] initWithDictionary:dictionary[@"user"]];
         self.text = dictionary[@"text"];
+        self.id = dictionary[@"id"];
         if (dictionary[@"retweeted_status"]) {
             self.retweetUser = [[User alloc] initWithDictionary:dictionary[@"user"]];
             self.user = [[User alloc] initWithDictionary:dictionary[@"retweeted_status"][@"user"]];
