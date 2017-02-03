@@ -91,6 +91,7 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"failed to get tweets");
+        [self printRateLimit:@"statuses"];
         completion(nil, error);
     }];
 }
@@ -104,8 +105,10 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"failed to get user tweets");
+        [self printRateLimit:@"statuses"];
         completion(nil, error);
     }];
+
 }
 
 - (void)likeTweet:(NSString *) tweetId completion:(void (^)(NSDictionary *response, NSError *error))completion;
@@ -114,6 +117,7 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
         completion(responseObject, nil);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"failed to like tweet");
+        [self printRateLimit:@"favorites"];
         completion(nil, error);
     }];
 }
@@ -125,6 +129,7 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
         completion(responseObject, nil);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"failed to retweet");
+        [self printRateLimit:@"statuses"];
         completion(nil, error);
     }];
 }
@@ -135,7 +140,17 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
         completion(responseObject, nil);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"failed to post tweet");
+        [self printRateLimit:@"statuses"];
         completion(nil, error);
+    }];
+}
+
+- (void)printRateLimit:(NSString *) category
+{
+    [self GET:@"1.1/application/rate_limit_status.json" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", responseObject[@"resources"][category]);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"failed to get rate limit");
     }];
 }
 

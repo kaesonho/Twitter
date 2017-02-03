@@ -146,6 +146,7 @@
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5f-Wb-k6R">
                                 <rect key="frame" x="313.5" y="0.0" width="156.5" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="tintColor" red="1" green="0.19768577948857424" blue="0.23588123166788899" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="              " image="favor-icon@2x.png">
                                     <color key="titleColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>

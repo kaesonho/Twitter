@@ -55,12 +55,12 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    [[TwitterClient sharedInstance] getTweets:self.category completion:^(NSArray<Tweet *> *tweets, NSError *error) {
+    /*[[TwitterClient sharedInstance] getTweets:self.category completion:^(NSArray<Tweet *> *tweets, NSError *error) {
         if (error == nil) {
             self.tweets = tweets;
             [self.tableView reloadData];
         }
-    }];
+    }];*/
 }
 
 - (void)didReceiveMemoryWarning {
