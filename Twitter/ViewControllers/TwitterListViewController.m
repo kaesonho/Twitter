@@ -55,6 +55,7 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
+    // remove this for the rate limit
     /*[[TwitterClient sharedInstance] getTweets:self.category completion:^(NSArray<Tweet *> *tweets, NSError *error) {
         if (error == nil) {
             self.tweets = tweets;
@@ -77,7 +78,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     TwitterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TwitterTableViewCell" forIndexPath:indexPath];
     Tweet *tweet = [self.tweets objectAtIndex:indexPath.row];
     [cell initFromTweetObject:tweet];
@@ -88,7 +88,6 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     DetailViewController *viewController = [[DetailViewController alloc]init];
     [viewController setTweet:[self.tweets objectAtIndex:indexPath.row]];
     [self.navigationController pushViewController:viewController animated:YES];
