@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComposeViewController">
             <connections>
+                <outlet property="profileImage" destination="cni-oL-Keg" id="COd-AD-xWP"/>
+                <outlet property="textField" destination="LkE-Zx-Wdz" id="fTV-mo-tGG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,13 +21,13 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CX-RP-fjB">
+                <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CX-RP-fjB">
                     <rect key="frame" x="0.0" y="22" width="375" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <items>
                         <navigationItem id="XDD-gx-iYa">
                             <barButtonItem key="leftBarButtonItem" style="plain" id="xd1-Dz-JtJ">
+                                <inset key="imageInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nTN-jf-18l">
                                     <rect key="frame" x="16" y="7" width="83" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -42,13 +44,64 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <state key="normal" title="Tweet"/>
+                                    <connections>
+                                        <action selector="onTweetClicked:" destination="-1" eventType="touchUpInside" id="Les-x5-zFF"/>
+                                    </connections>
                                 </button>
                             </barButtonItem>
                         </navigationItem>
                     </items>
                 </navigationBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="spP-7r-BlL" userLabel="Profile View">
+                    <rect key="frame" x="10" y="76" width="60" height="60"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cni-oL-Keg" userLabel="ProfileImage">
+                            <rect key="frame" x="5" y="5" width="50" height="50"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="9XX-wt-g3M"/>
+                        <constraint firstItem="cni-oL-Keg" firstAttribute="leading" secondItem="spP-7r-BlL" secondAttribute="leading" constant="5" id="Dvb-cw-AdV"/>
+                        <constraint firstItem="cni-oL-Keg" firstAttribute="top" secondItem="spP-7r-BlL" secondAttribute="top" constant="5" id="ONO-sc-wdl"/>
+                        <constraint firstAttribute="bottom" secondItem="cni-oL-Keg" secondAttribute="bottom" constant="5" id="PID-Vd-9ng"/>
+                        <constraint firstAttribute="height" constant="60" id="VXJ-g7-ma8"/>
+                        <constraint firstAttribute="trailing" secondItem="cni-oL-Keg" secondAttribute="trailing" constant="5" id="g7n-V3-xTw"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LkE-Zx-Wdz" userLabel="text">
+                    <rect key="frame" x="10" y="146" width="355" height="521"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="128" id="XqI-nC-w8n"/>
+                    </constraints>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="6CX-RP-fjB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="22" id="81a-8x-3eC"/>
+                <constraint firstItem="6CX-RP-fjB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LXO-en-1Vr"/>
+                <constraint firstAttribute="bottom" secondItem="LkE-Zx-Wdz" secondAttribute="bottom" id="NDn-5O-ZWZ"/>
+                <constraint firstItem="LkE-Zx-Wdz" firstAttribute="top" secondItem="spP-7r-BlL" secondAttribute="bottom" constant="10" id="Sjq-e9-veW"/>
+                <constraint firstItem="LkE-Zx-Wdz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="X0S-Ob-Z2q"/>
+                <constraint firstItem="spP-7r-BlL" firstAttribute="top" secondItem="6CX-RP-fjB" secondAttribute="bottom" constant="10" id="g0p-Qa-Sep"/>
+                <constraint firstAttribute="trailing" secondItem="6CX-RP-fjB" secondAttribute="trailing" id="nnY-M3-sCX"/>
+                <constraint firstAttribute="trailing" secondItem="LkE-Zx-Wdz" secondAttribute="trailing" constant="10" id="p5m-eo-w4Y"/>
+                <constraint firstItem="spP-7r-BlL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="quE-Hs-Uwk"/>
+            </constraints>
             <point key="canvasLocation" x="86" y="204"/>
         </view>
     </objects>

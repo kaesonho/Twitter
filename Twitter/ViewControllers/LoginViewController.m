@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "NavigationManager.h"
 #import "TwitterListViewController.h"
 #import "TwitterClient.h"
 
@@ -21,12 +22,8 @@
     [[TwitterClient sharedInstance] loginWithCompletion:^(User *user, NSError *error) {
         if (user != nil) {
             NSLog(@"Welcome to %@", user.name);
-            TwitterListViewController *listViewController = [[TwitterListViewController alloc] init];
-            // [self.navigationController pushViewController:listViewController animated:YES];
-            [self presentViewController:listViewController animated:NO completion:nil];
-            // present tweets view
+            [[NavigationManager shared] logIn];
         } else {
-            // present error view
         }
     }];
 }

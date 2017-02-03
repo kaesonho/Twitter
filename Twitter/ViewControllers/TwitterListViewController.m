@@ -15,6 +15,7 @@
 @interface TwitterListViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray<Tweet *> *tweets;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -27,12 +28,38 @@
     self.tableView.delegate = self;
     self.tableView.estimatedRowHeight = 250;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(onRefresh) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
+    [self.tableView setAllowsSelection:YES];
 
     UINib *nib = [UINib nibWithNibName:@"TwitterTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"TwitterTableViewCell"];
     [[TwitterClient sharedInstance] getTweets:self.category completion:^(NSArray<Tweet *> *tweets, NSError *error) {
-        self.tweets = tweets;
-        [self.tableView reloadData];
+        if (error == nil) {
+            self.tweets = tweets;
+            [self.tableView reloadData];
+        }
+    }];
+}
+
+- (void) onRefresh
+{
+    [[TwitterClient sharedInstance] getTweets:self.category completion:^(NSArray<Tweet *> *tweets, NSError *error) {
+        if (error == nil) {
+            self.tweets = tweets;
+            [self.tableView reloadData];
+        }
+        [self.refreshControl endRefreshing];
+    }];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [[TwitterClient sharedInstance] getTweets:self.category completion:^(NSArray<Tweet *> *tweets, NSError *error) {
+        if (error == nil) {
+            self.tweets = tweets;
+            [self.tableView reloadData];
+        }
     }];
 }
 

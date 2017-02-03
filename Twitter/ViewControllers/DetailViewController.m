@@ -68,11 +68,15 @@
 - (IBAction)onReplyClick:(id)sender {
     
     ComposeViewController *viewController = [[ComposeViewController alloc] init];
+    [viewController setIsRetweet:NO];
+    [viewController setTweet:self.tweet];
     
     [self presentViewController:viewController animated:YES completion:nil];
 }
 - (IBAction)onRetweetClick:(id)sender {
     ComposeViewController *viewController = [[ComposeViewController alloc] init];
+    [viewController setIsRetweet:YES];
+    [viewController setTweet:self.tweet];
     
     [self presentViewController:viewController animated:YES completion:nil];
 }

@@ -52,11 +52,17 @@
     }
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    // [self fetchTweets];
+}
+
 - (void) fetchTweets
 {
     [[TwitterClient sharedInstance] getUserTweets:self.user.screenName completion:^(NSArray<Tweet *> *tweets, NSError *error) {
-        self.tweets = tweets;
-        [self.tableView reloadData];
+        if (error == nil) {
+            self.tweets = tweets;
+            [self.tableView reloadData];
+        }
     }];
 }
 

@@ -8,6 +8,7 @@
 
 #import "TwitterClient.h"
 #import "Tweet.h"
+#import "User.h"
 
 NSString * const kTwitterConsumerKey = @"DJyR0jAaGBuKXcIts0YZe9oj3";
 NSString * const kTwitterConsumerSecret = @"rVRKiQ2mJmtICTDnCEUbOkap779nKRseU63wQGyWqRweR4ScGv";
@@ -16,7 +17,6 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
 @interface TwitterClient()
 
 @property (nonatomic, strong) void (^loginCompletion)(User *user, NSError *error);
-
 
 @end
 
@@ -71,6 +71,7 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
         {
             User *user = [[User alloc] initWithDictionary:responseObject];
             NSLog(@"credential verified, current user name %@", user.name);
+            self.user = user;
             completion(user, nil);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -89,7 +90,7 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
             completion(tweets, nil);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"failed to veirfy");
+        NSLog(@"failed to get tweets");
         completion(nil, error);
     }];
 }
@@ -102,10 +103,40 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
             completion(tweets, nil);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"failed to veirfy");
+        NSLog(@"failed to get user tweets");
         completion(nil, error);
     }];
 }
 
+- (void)likeTweet:(NSString *) tweetId completion:(void (^)(NSDictionary *response, NSError *error))completion;
+{
+    [self POST:@"1.1/favorites/create.json" parameters:@{@"id": tweetId} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        completion(responseObject, nil);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"failed to like tweet");
+        completion(nil, error);
+    }];
+}
+
+- (void)reTweet:(NSString *) tweetId completion:(void (^)(NSDictionary *response, NSError *error))completion;
+{
+    NSString *path = [NSString stringWithFormat:@"1.1/statuses/retweet/%@.json", tweetId];
+    [self POST:path parameters:@{@"id": tweetId} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        completion(responseObject, nil);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"failed to retweet");
+        completion(nil, error);
+    }];
+}
+
+- (void)postTweet:(NSString *) text completion:(void (^)(NSDictionary *response, NSError *error))completion;
+{
+    [self POST:@"1.1/statuses/update.json" parameters:@{@"status": text} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        completion(responseObject, nil);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"failed to post tweet");
+        completion(nil, error);
+    }];
+}
 
 @end

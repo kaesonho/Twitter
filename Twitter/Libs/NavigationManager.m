@@ -3,11 +3,14 @@
 #import "LoginViewController.h"
 #import "TwitterListViewController.h"
 #import "ProfileViewController.h"
+#import "ComposeViewController.h"
+#import "TwitterClient.h"
 
 @interface NavigationManager ()
 
 @property (nonatomic, assign) BOOL isLoggedIn;
 @property (nonatomic, strong) UINavigationController *navigationController;
+@property (nonatomic, strong) UITabBarController *tabBarController;
 
 @end
 
@@ -54,8 +57,36 @@
     [navController.navigationBar setBarTintColor:[UIColor colorWithRed:0.21 green:0.47 blue:0.71 alpha:1.0]];
     [navController.navigationBar setTintColor:[UIColor whiteColor]];
     [navController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+
+    UIBarButtonItem *tweetButton = [[UIBarButtonItem alloc]
+                                   initWithImage:[UIImage imageNamed:@"edit-icon@2x.png"]
+                                   style:UIBarButtonItemStylePlain
+                                   target:self
+                                   action:@selector(onTweetClicked:)];
+    navController.navigationBar.topItem.rightBarButtonItem = tweetButton;
     
+    UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc]
+                                    initWithTitle:@"Logout"
+                                    style:UIBarButtonItemStylePlain
+                                    target:self
+                                    action:@selector(onLogoutCLicked:)];
+    navController.navigationBar.topItem.rightBarButtonItem = tweetButton;
+    navController.navigationBar.topItem.leftBarButtonItem = logoutButton;
+
     return navController;
+}
+
+- (IBAction)onTweetClicked:(id)sender
+{
+    ComposeViewController *viewController = [[ComposeViewController alloc] init];
+    [viewController setIsRetweet:NO];
+    
+    [self.tabBarController.selectedViewController presentViewController:viewController animated:YES completion:nil];
+}
+
+- (IBAction)onLogoutCLicked:(id)sender
+{
+    [self logOut];
 }
 
 - (UIViewController *)loggedInVC
@@ -78,7 +109,7 @@
     [tabController.tabBar setTintColor:[UIColor whiteColor]];
     [tabController.tabBar setBarTintColor:[UIColor colorWithRed:0.21 green:0.47 blue:0.71 alpha:1.0]];
     tabController.viewControllers = @[homeNavController, mentionsNavController, profileNavController];
-    
+    self.tabBarController = tabController;
     return tabController;
 }
 

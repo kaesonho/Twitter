@@ -149,6 +149,9 @@
                                 <state key="normal" title="              " image="favor-icon@2x.png">
                                     <color key="titleColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onLikeClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Dqg-73-NEY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>

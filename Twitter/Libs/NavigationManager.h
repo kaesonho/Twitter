@@ -14,5 +14,6 @@
 - (UIViewController *) rootViewController;
 - (void) logIn;
 - (void) logOut;
+- (void) openComposer;
 
 @end
