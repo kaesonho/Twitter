@@ -114,6 +114,7 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
 - (void)likeTweet:(NSString *) tweetId completion:(void (^)(NSDictionary *response, NSError *error))completion;
 {
     [self POST:@"1.1/favorites/create.json" parameters:@{@"id": tweetId} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [self setDirty:YES];
         completion(responseObject, nil);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"failed to like tweet");
@@ -126,6 +127,7 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
 {
     NSString *path = [NSString stringWithFormat:@"1.1/statuses/retweet/%@.json", tweetId];
     [self POST:path parameters:@{@"id": tweetId} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [self setDirty:YES];
         completion(responseObject, nil);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"failed to retweet");
@@ -134,9 +136,17 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
     }];
 }
 
-- (void)postTweet:(NSString *) text completion:(void (^)(NSDictionary *response, NSError *error))completion;
+- (void)postTweet:(NSString *)text replyTo:(NSString *)replyId completion:(void (^)(NSDictionary *response, NSError *error))completion;
 {
-    [self POST:@"1.1/statuses/update.json" parameters:@{@"status": text} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    NSDictionary *parameters;
+    if (replyId) {
+        parameters = @{@"status": text, @"in_reply_to_status_id": replyId};
+    } else {
+        parameters = @{@"status": text};
+    }
+    
+    [self POST:@"1.1/statuses/update.json" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [self setDirty:YES];
         completion(responseObject, nil);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"failed to post tweet");
@@ -152,6 +162,14 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"failed to get rate limit");
     }];
+}
+
+- (bool) checkIfDirty
+{
+    // clear dirty and return;
+    bool dirty = self.dirty;
+    self.dirty = NO;
+    return dirty;
 }
 
 @end

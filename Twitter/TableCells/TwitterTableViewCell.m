@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @property (weak, nonatomic) IBOutlet UILabel *retweetLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *retweetHeightConstraint;
-@property (weak, nonatomic) Tweet *tweet;
+
 
 @end
 
@@ -33,11 +33,11 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.nameLabel.text = @"My Name";
-    self.handleLabel.text = @"@geniepotatogeniepotatogeniepotatogeniepotato";
-    self.timeLabel.text = @"4h";
-    self.contentLabel.text = @"This is a Long Message. This is a Long Message. This is a Long Message. This is a Long Message. This is a Long Message. This is a Long Message. ";
-
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onImageTapped)];
+    singleTap.numberOfTapsRequired = 1;
+    
+    [self.profileImageView setUserInteractionEnabled:YES];
+    [self.profileImageView addGestureRecognizer:singleTap];
 }
 
 - (NSString *) getReletiveTime: (NSDate *) createdAt
@@ -50,37 +50,34 @@
     return elapsed;
 }
 
-- (void) initFromTweetObject: (Tweet *)tweet
+- (void) updateUI
 {
-    self.tweet = tweet;
-    self.contentLabel.text = tweet.text;
-    self.nameLabel.text = tweet.user.name;
-    self.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
-    self.timeLabel.text = [self getReletiveTime: tweet.createdAt];
-    [self.profileImageView setImageWithURL: tweet.user.profileImageUrl];
-    
-    self.retweetButton.titleLabel.text = [NSString stringWithFormat:@" %d", tweet.retweetCount];
+    self.contentLabel.text = self.tweet.text;
+    self.nameLabel.text = self.tweet.user.name;
+    self.handleLabel.text = [NSString stringWithFormat:@"@%@", self.tweet.user.screenName];
+    self.timeLabel.text = [self getReletiveTime: self.tweet.createdAt];
+    [self.profileImageView setImageWithURL: self.tweet.user.profileImageUrl];
+    [self.retweetButton setTitle:[NSString stringWithFormat:@" %d", self.tweet.retweetCount] forState:UIControlStateNormal];
 
-    
-    if (tweet.retweetUser == nil) {
+    if (self.tweet.retweetUser == nil) {
         self.retweetHeightConstraint.constant = 0;
     } else {
         self.retweetHeightConstraint.constant = 24;
-        self.retweetLabel.text = [NSString stringWithFormat:@"%@ Retweeted",  tweet.retweetUser.name ];
+        self.retweetLabel.text = [NSString stringWithFormat:@"%@ Retweeted",  self.tweet.retweetUser.name ];
     }
-    
-    if (tweet.liked) {
-        [self.likeButton.imageView setImage:[UIImage imageNamed:@"favor-icon-red@2x.png"]];
+    if (self.tweet.retweeted) {
+        [self.retweetButton setImage:[UIImage imageNamed:@"retweet-icon-green@2x.png"] forState:UIControlStateNormal];
     } else {
-        [self.likeButton.imageView setImage:[UIImage imageNamed:@"favor-icon@2x.png"]];
+        [self.retweetButton setImage:[UIImage imageNamed:@"retweet-icon@2x.png"] forState:UIControlStateNormal];
     }
-    self.likeButton.titleLabel.text = [NSString stringWithFormat:@" %d", tweet.favoriteCount];
     
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onImageTapped)];
-    singleTap.numberOfTapsRequired = 1;
+    if (self.tweet.liked) {
+        [self.likeButton setImage:[UIImage imageNamed:@"favor-icon-red@2x.png"] forState:UIControlStateNormal];
+    } else {
+        [self.likeButton setImage:[UIImage imageNamed:@"favor-icon@2x.png"] forState:UIControlStateNormal];
+    }
     
-    [self.profileImageView setUserInteractionEnabled:YES];
-    [self.profileImageView addGestureRecognizer:singleTap];
+    [self.likeButton setTitle:[NSString stringWithFormat:@" %d", self.tweet.favoriteCount] forState:UIControlStateNormal];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

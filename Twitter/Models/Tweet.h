@@ -19,6 +19,7 @@
 @property bool liked;
 @property int favoriteCount;
 @property int retweetCount;
+@property bool retweeted;
 
 - (id) initWithDictionary:(NSDictionary *) dictionary;
 + (NSArray *) tweetsWithArray: (NSArray *) array;

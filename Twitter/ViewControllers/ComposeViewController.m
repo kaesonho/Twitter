@@ -103,7 +103,7 @@
             [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
         }];
     } else {
-        [[TwitterClient sharedInstance] postTweet:self.textField.text completion:^(NSDictionary *response, NSError *error) {
+        [[TwitterClient sharedInstance] postTweet:self.textField.text replyTo:self.tweet.id completion:^(NSDictionary *response, NSError *error) {
             [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
         }];
     }

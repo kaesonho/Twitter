@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "ComposeViewController.h"
+#import "TwitterClient.h"
 
 @interface DetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -22,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *replyButton;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (weak, nonatomic) IBOutlet UILabel *retweetedLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *retweetHeightConstraint;
 
 
 @end
@@ -32,6 +35,13 @@
     [super viewDidLoad];
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    if (self.tweet.retweetUser == nil) {
+        self.retweetHeightConstraint.constant = 0;
+    } else {
+        self.retweetHeightConstraint.constant = 24;
+        self.retweetedLabel.text = [NSString stringWithFormat:@"%@ Retweeted",  self.tweet.retweetUser.name ];
+    }
  
     self.nameLabel.text = self.tweet.user.name;
     self.handleLabel.text = [NSString stringWithFormat:@"@%@", self.tweet.user.screenName];
@@ -44,11 +54,21 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM/dd/yyyy HH:mm"];
     self.timeLabel.text = [dateFormatter stringFromDate:self.tweet.createdAt];
-    if (self.tweet.liked) {
-        [self.likeButton.imageView setImage:[UIImage imageNamed:@"favor-icon-red@2x.png"]];
+    
+    if (self.tweet.retweeted) {
+        [self.retweetButton setImage:[UIImage imageNamed:@"retweet-icon-green@2x.png"] forState:UIControlStateNormal];
     } else {
-        [self.likeButton.imageView setImage:[UIImage imageNamed:@"favor-icon@2x.png"]];
+        [self.retweetButton setImage:[UIImage imageNamed:@"retweet-icon@2x.png"] forState:UIControlStateNormal];
     }
+    
+    if (self.tweet.liked) {
+        [self.likeButton setImage:[UIImage imageNamed:@"favor-icon-red@2x.png"] forState:UIControlStateNormal];
+    } else {
+        [self.likeButton setImage:[UIImage imageNamed:@"favor-icon@2x.png"] forState:UIControlStateNormal];
+    }
+
+    
+    [self updateViewConstraints];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,6 +99,12 @@
     [viewController setTweet:self.tweet];
     
     [self presentViewController:viewController animated:YES completion:nil];
+}
+- (IBAction)onLikeClicked:(id)sender {
+    
+    [[TwitterClient sharedInstance] likeTweet:self.tweet.id completion:^(NSDictionary *response, NSError *error) {
+            [self.likeButton.imageView setImage:[UIImage imageNamed:@"favor-icon-red@2x.png"]];
+        }];
 }
 
 @end

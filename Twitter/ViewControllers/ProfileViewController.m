@@ -105,9 +105,11 @@
     
     TwitterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TwitterTableViewCell" forIndexPath:indexPath];
     Tweet *tweet = [self.tweets objectAtIndex:indexPath.row];
-    [cell initFromTweetObject:tweet];
-    [cell needsUpdateConstraints];
     [cell setViewController:self];
+    [cell setTweet:tweet];
+    [cell updateUI];
+    [cell needsUpdateConstraints];
+
     return cell;
 }
 

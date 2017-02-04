@@ -56,12 +56,15 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     // remove this for the rate limit
-    /*[[TwitterClient sharedInstance] getTweets:self.category completion:^(NSArray<Tweet *> *tweets, NSError *error) {
-        if (error == nil) {
-            self.tweets = tweets;
-            [self.tableView reloadData];
-        }
-    }];*/
+    TwitterClient *instance = [TwitterClient sharedInstance];
+    if (instance.dirty) {
+        [instance getTweets:self.category completion:^(NSArray<Tweet *> *tweets, NSError *error) {
+            if (error == nil) {
+                self.tweets = tweets;
+                [self.tableView reloadData];
+            }
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,9 +83,11 @@
 {
     TwitterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TwitterTableViewCell" forIndexPath:indexPath];
     Tweet *tweet = [self.tweets objectAtIndex:indexPath.row];
-    [cell initFromTweetObject:tweet];
-    [cell needsUpdateConstraints];
+    [cell setTweet:tweet];
+    [cell updateUI];
     [cell setViewController:self];
+    [cell needsUpdateConstraints];
+
     return cell;
 }
 
