@@ -54,7 +54,7 @@
     UITabBarItem *homeTabBarItem = [[UITabBarItem alloc] initWithTitle:title image:[UIImage imageNamed:img] tag:tag];
     viewController.tabBarItem = homeTabBarItem;
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    [navController.navigationBar setBarTintColor:[UIColor colorWithRed:0.21 green:0.47 blue:0.71 alpha:1.0]];
+    [navController.navigationBar setBarTintColor:[UIColor colorWithRed:0.21 green:0.47 blue:0.80 alpha:1.0]];
     [navController.navigationBar setTintColor:[UIColor whiteColor]];
     [navController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
 
@@ -108,7 +108,7 @@
     UITabBarController *tabController = [[UITabBarController alloc] init];
     [tabController.tabBar setTintColor:[UIColor whiteColor]];
     [tabController.tabBar setUnselectedItemTintColor:[UIColor lightTextColor]];
-    [tabController.tabBar setBarTintColor:[UIColor colorWithRed:0.21 green:0.47 blue:0.71 alpha:1.0]];
+    [tabController.tabBar setBarTintColor:[UIColor colorWithRed:0.21 green:0.47 blue:0.80 alpha:1.0]];
     tabController.viewControllers = @[homeNavController, mentionsNavController, profileNavController];
     self.tabBarController = tabController;
     return tabController;
