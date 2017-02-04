@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray<Tweet *> *tweets;
 @property (weak, nonatomic) IBOutlet UILabel *tagLine;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -50,6 +51,11 @@
         [self updateView];
         [self fetchTweets];
     }
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(onRefresh) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
+    [self.tableView setAllowsSelection:YES];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -59,6 +65,17 @@
         [self fetchTweets];
     }
     
+}
+
+- (void) onRefresh
+{
+    [[TwitterClient sharedInstance] getUserTweets:self.user.screenName completion:^(NSArray<Tweet *> *tweets, NSError *error) {
+        if (error == nil) {
+            self.tweets = tweets;
+            [self.tableView reloadData];
+        }
+        [self.refreshControl endRefreshing];
+    }];
 }
 
 - (void) fetchTweets

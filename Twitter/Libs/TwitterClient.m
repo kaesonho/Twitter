@@ -100,7 +100,10 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
 {
     [self GET:@"1.1/statuses/user_timeline.json" parameters: @{@"screen_name": screenName} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         {
-            NSArray *tweets = [Tweet tweetsWithArray:responseObject];
+            NSArray *tweets;
+            if (responseObject) {
+                tweets = [Tweet tweetsWithArray:responseObject];
+            }
             completion(tweets, nil);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

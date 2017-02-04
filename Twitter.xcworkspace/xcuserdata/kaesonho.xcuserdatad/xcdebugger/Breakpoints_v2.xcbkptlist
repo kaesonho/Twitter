@@ -562,11 +562,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twitter/Libs/TwitterClient.m"
-            timestampString = "507821742.500339"
+            timestampString = "507864323.496057"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "-getUserTweets:completion:"
             landmarkType = "7">
          </BreakpointContent>
@@ -578,11 +578,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twitter/ViewControllers/ProfileViewController.m"
-            timestampString = "507860724.559078"
+            timestampString = "507864440.786869"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "-fetchTweets"
             landmarkType = "7">
          </BreakpointContent>
@@ -642,11 +642,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twitter/Libs/TwitterClient.m"
-            timestampString = "507859632.031665"
+            timestampString = "507864323.496057"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "-postTweet:replyTo:completion:"
             landmarkType = "7">
          </BreakpointContent>
@@ -658,11 +658,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twitter/Libs/TwitterClient.m"
-            timestampString = "507859632.031665"
+            timestampString = "507864323.496057"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "-postTweet:replyTo:completion:"
             landmarkType = "7">
          </BreakpointContent>
@@ -674,11 +674,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twitter/Libs/TwitterClient.m"
-            timestampString = "507859632.031665"
+            timestampString = "507864323.496057"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "-reTweet:completion:"
             landmarkType = "7">
          </BreakpointContent>
@@ -690,11 +690,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twitter/Libs/TwitterClient.m"
-            timestampString = "507859632.031665"
+            timestampString = "507864323.496057"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "-reTweet:completion:"
             landmarkType = "7">
          </BreakpointContent>
@@ -754,11 +754,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twitter/Libs/TwitterClient.m"
-            timestampString = "507821742.500339"
+            timestampString = "507864323.496057"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "-getUserTweets:completion:"
             landmarkType = "7">
          </BreakpointContent>
@@ -770,11 +770,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twitter/Libs/TwitterClient.m"
-            timestampString = "507821742.500339"
+            timestampString = "507864323.496057"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "-getUserTweets:completion:"
             landmarkType = "7">
          </BreakpointContent>
@@ -786,11 +786,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twitter/Libs/TwitterClient.m"
-            timestampString = "507859632.031665"
+            timestampString = "507864323.496057"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "-likeTweet:completion:"
             landmarkType = "7">
          </BreakpointContent>
@@ -897,11 +897,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twitter/Libs/TwitterClient.m"
-            timestampString = "507859632.031665"
+            timestampString = "507864323.496057"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "-printRateLimit:"
             landmarkType = "7">
          </BreakpointContent>
@@ -913,11 +913,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twitter/Libs/TwitterClient.m"
-            timestampString = "507859632.031665"
+            timestampString = "507864323.496057"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "-printRateLimit:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1041,11 +1041,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twitter/Libs/TwitterClient.m"
-            timestampString = "507859632.031665"
+            timestampString = "507864323.496057"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "-postTweet:replyTo:completion:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1057,11 +1057,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twitter/Libs/TwitterClient.m"
-            timestampString = "507859632.031665"
+            timestampString = "507864323.496057"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "-postTweet:replyTo:completion:"
             landmarkType = "7">
             <Locations>
@@ -1111,6 +1111,38 @@
             startingLineNumber = "80"
             endingLineNumber = "80"
             landmarkName = "-updateUI"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Twitter/ViewControllers/ProfileViewController.m"
+            timestampString = "507864668.300212"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Twitter/ViewControllers/ProfileViewController.m"
+            timestampString = "507864669.042263"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
