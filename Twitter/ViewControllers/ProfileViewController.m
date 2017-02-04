@@ -10,8 +10,9 @@
 #import "TwitterClient.h"
 #import "TwitterTableViewCell.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
+#import "DetailViewController.h"
 
-@interface ProfileViewController () <UITableViewDataSource>
+@interface ProfileViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *bannerImage;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -34,6 +35,7 @@
     
     // for tableview
     self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     UINib *nib = [UINib nibWithNibName:@"TwitterTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"TwitterTableViewCell"];
     self.tableView.estimatedRowHeight = 250;
@@ -133,6 +135,14 @@
     [cell needsUpdateConstraints];
 
     return cell;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DetailViewController *viewController = [[DetailViewController alloc]init];
+    [viewController setTweet:[self.tweets objectAtIndex:indexPath.row]];
+    [self.navigationController pushViewController:viewController animated:YES];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 @end

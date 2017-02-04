@@ -108,6 +108,7 @@
     [[TwitterClient sharedInstance] likeTweet:self.tweet.id completion:^(NSDictionary *response, NSError *error) {
         [self.likeButton.imageView setImage:[UIImage imageNamed:@"favor-icon-red@2x.png"]];
     }];
+    [self.viewController viewWillAppear:NO];
 }
 
 @end
