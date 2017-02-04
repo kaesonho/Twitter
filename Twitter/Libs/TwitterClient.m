@@ -98,12 +98,13 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
 
 - (void)getUserTweets:(NSString *)screenName completion:(void (^)(NSArray<Tweet *> *tweets, NSError *error))completion
 {
+    NSLog(@"start to get user tweet");
     [self GET:@"1.1/statuses/user_timeline.json" parameters: @{@"screen_name": screenName} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         {
             NSArray *tweets;
-            if (responseObject) {
-                tweets = [Tweet tweetsWithArray:responseObject];
-            }
+            NSLog(@"????%@", responseObject);
+            tweets = [Tweet tweetsWithArray:responseObject];
+            NSLog(@"ok%@", tweets);
             completion(tweets, nil);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
