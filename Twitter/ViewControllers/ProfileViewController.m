@@ -54,6 +54,11 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     // [self fetchTweets];
+    TwitterClient *instance = [TwitterClient sharedInstance];
+    if (instance.dirty) {
+        [self fetchTweets];
+    }
+    
 }
 
 - (void) fetchTweets

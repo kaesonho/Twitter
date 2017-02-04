@@ -107,6 +107,7 @@
 
     UITabBarController *tabController = [[UITabBarController alloc] init];
     [tabController.tabBar setTintColor:[UIColor whiteColor]];
+    [tabController.tabBar setUnselectedItemTintColor:[UIColor lightTextColor]];
     [tabController.tabBar setBarTintColor:[UIColor colorWithRed:0.21 green:0.47 blue:0.71 alpha:1.0]];
     tabController.viewControllers = @[homeNavController, mentionsNavController, profileNavController];
     self.tabBarController = tabController;

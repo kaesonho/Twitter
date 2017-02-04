@@ -98,12 +98,14 @@
     [viewController setIsRetweet:YES];
     [viewController setTweet:self.tweet];
     
-    [self presentViewController:viewController animated:YES completion:nil];
+    [self presentViewController:viewController animated:YES completion:^{
+            [self.retweetButton setImage:[UIImage imageNamed:@"retweet-icon-green@2x.png"] forState:UIControlStateNormal];
+    }];
 }
 - (IBAction)onLikeClicked:(id)sender {
     
     [[TwitterClient sharedInstance] likeTweet:self.tweet.id completion:^(NSDictionary *response, NSError *error) {
-            [self.likeButton.imageView setImage:[UIImage imageNamed:@"favor-icon-red@2x.png"]];
+            [self.likeButton setImage:[UIImage imageNamed:@"favor-icon-red@2x.png"] forState:UIControlStateNormal];
         }];
 }
 
